@@ -1,0 +1,176 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@custom-variant dark (&:where(.dark, .dark *));
+
+.container-xl {
+  max-width: 100% !important;
+}
+.ThreePanesLayout-module__ThreePanesLayoutMiddleOnlyPane--OBqSv {
+  max-width: 100% !important;
+}
+.ContentWrapper-module__contentContainer--UBLwW {
+  max-width: 100% !important;
+}
+.fVfnXK {
+  max-width: 100% !important;
+}
+#js-repo-pjax-container .discussion-timeline {
+  width: 100% !important;
+}
+#js-repo-pjax-container .timeline-new-comment {
+  max-width: 100% !important;
+}
+#js-repo-pjax-container .new-discussion-timeline .files-bucket > div {
+  width: inherit !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+#js-repo-pjax-container .inline-comments .comment-holder,
+#js-repo-pjax-container .inline-comments .inline-comment-form-container,
+#js-repo-pjax-container .inline-comments .inline-comment-form,
+#js-repo-pjax-container #all_commit_comments .commit-comments-heading,
+#js-repo-pjax-container #all_commit_comments .comment-holder {
+  max-width: 100% !important;
+}
+#js-repo-pjax-container .js-issue-row .text-right {
+  max-width: 303px !important;
+}
+#js-repo-pjax-container .capped-card-content {
+  width: 100% !important;
+}
+.gist-content .commit-create .CodeMirror {
+  min-height: 250px;
+  height: calc(100vh - 500px) !important;
+}
+#userscript-branches-table {
+  margin-top: 18px;
+}
+.prc-BranchName-BranchName-jFtg- {
+  background-color: var(--bgColor-accent-muted, var(--color-accent-subtle));
+  border-radius: var(--borderRadius-medium, 0.375rem);
+  color: var(--fgColor-link, var(--color-accent-fg));
+  display: inline-block;
+  font-family: var(
+    --fontStack-monospace,
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace
+  );
+  font-size: var(--text-body-size-small, 0.75rem);
+  padding: var(--base-size-2, 0.125rem) var(--base-size-6, 0.375rem);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+.iLdDOk {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+}
+.ibFJvP {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 32px;
+}
+.hKWjvQ {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.fiSvBN {
+  position: relative;
+  display: inline-block;
+}
+.eEJBwi {
+  display: inline-block;
+  color: var(--fgColor-muted, var(--color-fg-muted, #848d97));
+}
+.gFwfBq {
+  display: flex;
+  width: 126px;
+}
+.dQfiHF {
+  position: relative;
+  width: 50%;
+  padding-bottom: 4px;
+  text-align: right;
+}
+.bHKmtK {
+  position: relative;
+  display: block;
+  top: -1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+}
+.itKkCL {
+  position: relative;
+  width: 50%;
+  padding-bottom: 4px;
+  text-align: left;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: var(--borderColor-default, var(--color-border-default, #30363d));
+}
+.hdShgm {
+  position: relative;
+  overflow: auto;
+}
+.hyUedm {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: 3px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+}
+.kYLlPM {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.edRbzn {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+.eIsNdH {
+  font-weight: 400;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.fWJxcW {
+  color: var(--fgColor-muted, var(--color-fg-subtle, #6e7681));
+}
+.gHzkdx {
+  margin-left: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted, #848d97));
+}
+.dVRVeW {
+  color: var(--fgColor-closed, var(--color-closed-fg, #f85149));
+}
+.eMFpfy {
+  color: var(--fgColor-open, var(--color-open-fg, #3fb950));
+}
+.octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+.hGcIaI {
+  color: var(--fgColor-done, var(--color-done-fg, #a371f7));
+}

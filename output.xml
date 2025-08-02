@@ -1,0 +1,430 @@
+<directory_structure>
+src/
+  app.ts
+  index.ts
+  meta.js
+  style.css
+package.json
+postcss.config.mjs
+rollup.config.mjs
+tsconfig.json
+</directory_structure>
+
+<files>
+<file path="src/app.ts">
+import './style.css';
+function addCustomStyles(): void {
+    const STYLE_ID: string = "ghab_styles";
+    if (document.getElementById(STYLE_ID)) {
+        console.log("🎨 [GitHub Active Branches] Custom styles already applied");
+        return;
+    }
+    const styleElement = document.createElement("style");
+    styleElement.id = STYLE_ID;
+    styleElement.type = "text/css";
+    // styleElement.textContent = styleSheet;
+    document.head.appendChild(styleElement);
+    console.log("🎨 [GitHub Active Branches] Custom styles applied");
+}
+addCustomStyles();
+</file>
+
+<file path="src/index.ts">
+import './meta.js?userscript-metadata';
+import './app';
+</file>
+
+<file path="src/meta.js">
+// ==UserScript==
+// @name        My GitHub Userscript
+// @namespace   Violentmonkey Scripts
+// @description Display active branches table at the top of GitHub repository pages and other features
+// @author      process.env.AUTHOR
+// @match       https://gist.github.com/*
+// @match       https://github.com/*/*
+// @exclude     https://github.com/*/*/branches/*
+// @run-at      document-end
+// @grant       GM_addStyle
+// ==/UserScript==
+/**
+ * Code here will be ignored on compilation. So it's a good place to leave messages to developers.
+ *
+ * - The `@grant`s used in your source code will be added automatically by `rollup-plugin-userscript`.
+ *   However you have to add explicitly those used in required resources.
+ * - `process.env.AUTHOR` will be loaded from `package.json`.
+ */
+</file>
+
+<file path="src/style.css">
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@custom-variant dark (&:where(.dark, .dark *));
+.count {
+  @apply text-orange-500;
+}
+.plus1 {
+  @apply float-right;
+}
+.container-xl {
+  max-width: 100% !important;
+}
+.ThreePanesLayout-module__ThreePanesLayoutMiddleOnlyPane--OBqSv {
+  max-width: 100% !important;
+}
+.ContentWrapper-module__contentContainer--UBLwW {
+  max-width: 100% !important;
+}
+.fVfnXK {
+  max-width: 100% !important;
+}
+#js-repo-pjax-container .discussion-timeline {
+  width: 100% !important;
+}
+#js-repo-pjax-container .timeline-new-comment {
+  max-width: 100% !important;
+}
+#js-repo-pjax-container .new-discussion-timeline .files-bucket > div {
+  width: inherit !important;
+  left: auto !important;
+  right: auto !important;
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+#js-repo-pjax-container .inline-comments .comment-holder,
+#js-repo-pjax-container .inline-comments .inline-comment-form-container,
+#js-repo-pjax-container .inline-comments .inline-comment-form,
+#js-repo-pjax-container #all_commit_comments .commit-comments-heading,
+#js-repo-pjax-container #all_commit_comments .comment-holder {
+  max-width: 100% !important;
+}
+#js-repo-pjax-container .js-issue-row .text-right {
+  max-width: 303px !important;
+}
+#js-repo-pjax-container .capped-card-content {
+  width: 100% !important;
+}
+.gist-content .commit-create .CodeMirror {
+  min-height: 250px;
+  height: calc(100vh - 500px) !important;
+}
+#userscript-branches-table {
+  margin-top: 18px;
+}
+.prc-BranchName-BranchName-jFtg- {
+  background-color: var(--bgColor-accent-muted, var(--color-accent-subtle));
+  border-radius: var(--borderRadius-medium, 0.375rem);
+  color: var(--fgColor-link, var(--color-accent-fg));
+  display: inline-block;
+  font-family: var(
+    --fontStack-monospace,
+    ui-monospace,
+    SFMono-Regular,
+    SF Mono,
+    Menlo,
+    Consolas,
+    Liberation Mono,
+    monospace
+  );
+  font-size: var(--text-body-size-small, 0.75rem);
+  padding: var(--base-size-2, 0.125rem) var(--base-size-6, 0.375rem);
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+.iLdDOk {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+}
+.ibFJvP {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 32px;
+}
+.hKWjvQ {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.fiSvBN {
+  position: relative;
+  display: inline-block;
+}
+.eEJBwi {
+  display: inline-block;
+  color: var(--fgColor-muted, var(--color-fg-muted, #848d97));
+}
+.gFwfBq {
+  display: flex;
+  width: 126px;
+}
+.dQfiHF {
+  position: relative;
+  width: 50%;
+  padding-bottom: 4px;
+  text-align: right;
+}
+.bHKmtK {
+  position: relative;
+  display: block;
+  top: -1px;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 12px;
+}
+.itKkCL {
+  position: relative;
+  width: 50%;
+  padding-bottom: 4px;
+  text-align: left;
+  border-left-width: 1px;
+  border-left-style: solid;
+  border-color: var(--borderColor-default, var(--color-border-default, #30363d));
+}
+.hdShgm {
+  position: relative;
+  overflow: auto;
+}
+.hyUedm {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin-right: 3px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+}
+.kYLlPM {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.edRbzn {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+.eIsNdH {
+  font-weight: 400;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.fWJxcW {
+  color: var(--fgColor-muted, var(--color-fg-subtle, #6e7681));
+}
+.gHzkdx {
+  margin-left: 4px;
+  color: var(--fgColor-muted, var(--color-fg-muted, #848d97));
+}
+.dVRVeW {
+  color: var(--fgColor-closed, var(--color-closed-fg, #f85149));
+}
+.eMFpfy {
+  color: var(--fgColor-open, var(--color-open-fg, #3fb950));
+}
+.octicon {
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+.hGcIaI {
+  color: var(--fgColor-done, var(--color-done-fg, #a371f7));
+}
+</file>
+
+<file path="package.json">
+{
+  "name": "github-active-branches",
+  "version": "0.1",
+  "author": "Francisco Boni (boboniboni@gmail.com)",
+  "description": "Display active branches table at the top of GitHub repository pages and other features",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "clean2": "bun run --filter \"!@librechat/backend\" clean",
+    "build": "NODE_ENV=production  bun run --bun rollup -c",
+    "build2": "NODE_ENV=production bun run --bun rollup -c && bun run typecheck",
+    "typecheck": "NODE_ENV=production bun run --bun tsc --build"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/plugin-transform-react-jsx": "^7.27.1",
+    "@babel/plugin-transform-runtime": "^7.28.0",
+    "@babel/preset-env": "^7.28.0",
+    "@babel/preset-typescript": "^7.27.1",
+    "@eslint/compat": "^1.3.1",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.32.0",
+    "@gera2ld/plaid": "^2.7.0",
+    "@gera2ld/plaid-rollup": "^2.7.0",
+    "@rollup/plugin-alias": "^5.1.1",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-json": "^6.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-replace": "^6.0.2",
+    "@rollup/plugin-swc": "^0.4.0",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@swc/core": "^1.13.3",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@types/eslint": "^9.6.1",
+    "@types/node": "^24.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.38.0",
+    "@unocss/postcss": "^66.3.3",
+    "@violentmonkey/types": "^0.2.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.32.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-prettier": "^5.5.3",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "globals": "^16.3.0",
+    "postcss": "^8.5.6",
+    "postcss-calc": "^10.1.1",
+    "postcss-import": "^16.1.1",
+    "postcss-nested": "^7.0.2",
+    "postcss-preset-env": "^10.2.4",
+    "prettier": "^3.6.2",
+    "prettier-eslint": "^16.4.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "read-package-up": "^11.0.0",
+    "rollup": "^4.46.2",
+    "rollup-plugin-esbuild": "^6.2.1",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-userscript": "^0.3.7",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^6.0.0-dev.20250802",
+    "typescript-eslint": "^8.38.0",
+    "unocss": "^66.3.3"
+  },
+  "trustedDependencies": [
+    "unrs-resolver"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.28.2",
+    "@gera2ld/jsx-dom": "^2.2.2"
+  }
+}
+</file>
+
+<file path="postcss.config.mjs">
+export default {
+  plugins: {
+    "@tailwindcss/postcss": {},
+  },
+};
+</file>
+
+<file path="rollup.config.mjs">
+import { defineConfig } from "rollup";
+import pkg from "./package.json" with { type: "json" };
+import userscript from "rollup-plugin-userscript";
+import replacePlugin from "@rollup/plugin-replace";
+import postcssPlugin from "rollup-plugin-postcss";
+import commonjsPlugin from "@rollup/plugin-commonjs";
+import resolvePlugin from "@rollup/plugin-node-resolve";
+import jsonPlugin from "@rollup/plugin-json";
+import tailwildcss from "@tailwindcss/postcss";
+import swc from "@rollup/plugin-swc";
+
+const extensions = [".ts", ".tsx", ".mjs", ".js", ".jsx"];
+
+function insertCss(cssVariableName, fileId) {
+  return `GM_addStyle(${cssVariableName})`;
+}
+
+export default defineConfig(
+  Object.entries({
+    "github-active-branches": "src/index.ts",
+  }).map(([name, entry]) => ({
+    input: entry,
+    plugins: [
+      postcssPlugin({
+        extract: false,
+        inject: insertCss,
+        minimize: true,
+        plugins: [tailwildcss],
+      }),
+      replacePlugin({
+        values: {
+          "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
+        },
+        preventAssignment: true,
+      }),
+      resolvePlugin({ browser: false,
+        preferBuiltins: true,
+        extensions }),
+      commonjsPlugin(),
+      jsonPlugin(),
+      swc({
+        // Explicitly point to the tsconfig.json file
+        tsconfig: "./tsconfig.json",
+      }),
+      userscript((meta) => meta.replace("process.env.AUTHOR", pkg.author)),
+    ],
+    output: {
+      format: "iife",
+      file: `dist/${name}.user.js`,
+      indent: false,
+      // extend: true,
+      esModule: true,
+    },
+  })),
+);
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "useDefineForClassFields": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    "incremental": true,
+    "composite": true,
+    "skipDefaultLibCheck": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noErrorTruncation": true,
+    "disableSizeLimit": true,
+    "outDir": "dist",
+    "moduleResolution": "bundler",
+    "module": "ESNext",
+    "target": "ESNext",
+    "jsx": "react",
+    "allowJs": true,
+    "checkJs": true,
+    "declarationDir": "./dist/types",
+    "noEmit": false,
+    "emitDeclarationOnly": true,
+    "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "baseUrl": ".",
+    "rootDir": "./src"
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+    "eslint.config.mjs",
+    "rollup.config.mjs",
+    "postcss.config.mjs"
+  ],
+  "include": ["src/**/*"]
+}
+</file>
+</files>
